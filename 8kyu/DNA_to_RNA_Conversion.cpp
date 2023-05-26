@@ -9,15 +9,24 @@
 
 // The input string can be of arbitrary length - in particular, it may be empty. All input is guaranteed to be valid, i.e. each input string will only ever consist of 'G', 'C', 'A' and/or 'T'.
 
-//My solution:
-
 #include <string>
-std::string DNAtoRNA(std::string dna){
-  int str_len = dna.length();
-  for (int i = 0; i < str_len; i++)
-  {
-    if (dna[i] == 'T')
-      dna[i] = 'U';
-  }
+#include <algorithm>
+
+// ***Better 
+std::string DNAtoRNA(std::string dna)
+{
+  	std::replace(dna.begin(), dna.end(), 'T', 'U');
+  	return dna;
+}
+
+//	My solution:
+std::string DNAtoRNA(std::string dna)
+{
+	int	str_len = dna.length();
+	for (int i = 0; i < str_len; i++)
+  	{
+		if (dna[i] == 'T')
+    		dna[i] = 'U';
+  	}
   return dna;
 }
